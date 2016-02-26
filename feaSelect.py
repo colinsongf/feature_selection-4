@@ -28,7 +28,7 @@ def getsigma(y,f):
      
 def feaSelect(x, y, method, th, param, flagCR = 'Classifier'):
     np.rand.seed(9001)
-    if method in {'fspp_regression', 'randomforest'}:
+    if method in {'fspp', 'randomforest'}:
         print method, ' is running in feature selection'
     else:
         print '*** Wrong method ***'
@@ -41,7 +41,7 @@ def feaSelect(x, y, method, th, param, flagCR = 'Classifier'):
     clf.fit(x,y)
     if method == 'randomforest':
         fscore = clf.feature_importances_
-    if method == 'fspp_regression':
+    if method == 'fspp':
         if flagCR == 'Classifier':
             d = x.shape[1]
             n = x.shape[0]
